@@ -11,7 +11,13 @@ img_height = 250
 img_width = 250
 
 # Train the model
-train_results = model.train(
-    data=r"C:\Users\tar30\makeForLkoTraffic\traininingModel\data.yml",  # path to dataset YAML
+# train_results = model.train(
+#     data=r"C:\Users\tar30\makeForLkoTraffic\traininingModel\data.yml",  # path to dataset YAML
+#e
+# )
 
-)
+
+model = YOLO(r"C:\Users\tar30\makeForLkoTraffic\Models\best.pt")
+
+# Perform object detection on an image
+results = model(r"C:\Users\tar30\Downloads\Wormhole WqMkML\test (14).mp4", save=True)
