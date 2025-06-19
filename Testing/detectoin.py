@@ -9,7 +9,7 @@ model= YOLO("yolo11n.pt")
 
 class_list=model.names
 videoPath=r"C:\Users\tar30\realTimeTracking\Data\Video\3.mp4"
-cap=cv2.VideoCapture(videoPath)
+cap=cv2.VideoCapture(1)
 
 while cap.isOpened():
     ret,frame=cap.read()
@@ -18,7 +18,7 @@ while cap.isOpened():
 
     # Run YOLO tracking on the frame
     results = model.track(frame, persist=True)
-    
+
     if results and results[0].boxes is not None and results[0].boxes.data is not None:
                 # Get the detected boxes, their class indices, and track IDs
                 boxes = results[0].boxes.xyxy.cpu().numpy()
